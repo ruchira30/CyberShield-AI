@@ -1,19 +1,16 @@
 from fastapi import FastAPI
 
+from api.routes import router as base_router
+from api.phishing import router as phishing_router
+from api.url import router as url_router
+from api.ddos import router as ddos_router
+
 app = FastAPI(
     title="CyberShield AI",
-    description="AI-Powered Cybersecurity Intelligence Platform",
     version="1.0.0"
 )
 
-@app.get("/")
-def home():
-    return {
-        "message": "CyberShield AI Backend Running"
-    }
-
-@app.get("/health")
-def health():
-    return {
-        "status": "healthy"
-    }
+app.include_router(base_router)
+app.include_router(phishing_router)
+app.include_router(url_router)
+app.include_router(ddos_router)
