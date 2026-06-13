@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from api.endpoints.phishing import router as phishing_router
-from api.endpoints.url import router as url_router
-from api.endpoints.ddos import router as ddos_router
+from api.phishing import router as phishing_router
+from api.url import router as url_router
+from api.ddos import router as ddos_router
 
 router = APIRouter()
 
